@@ -1,88 +1,81 @@
 
-# ArcGIS Pro Toolboxes
+# ArcGIS Pro — Additional Toolboxes
 
-## Overview
-This repository contains a collection of ArcGIS Pro Python toolboxes designed to streamline and automate common GIS workflows. The tools support tasks such as feature management, data validation, and operations across multiple maps or layers. They help reduce repetitive work, ensure consistent processing, and provide reusable components for teams and projects.  
-A practical example is the *Copy Layer* tool, which copies features—including geometry and shared attributes—between layers located in different maps of an ArcGIS Pro project.
+This repository collects **additional Python toolboxes (.pyt)** for ArcGIS Pro that streamline common tasks and standardize repeatable workflows. Each toolbox is designed to work natively in the **Geoprocessing** pane and depends only on **ArcPy** and the Python standard library.
 
----
-
-## Installation
-
-### 1. Download or clone the repository
-Clone the repository or download it as a ZIP and place it in any directory accessible to ArcGIS Pro, e.g.:
-C:\Projects\ArcGISToolboxes\
-Your toolbox file may look like:
-C:\Projects\ArcGISToolboxes\DataCopyTools.pyt
-
-
-### 2) Add the folder in ArcGIS Pro (one‑time per project)
-1. Open **ArcGIS Pro**  
-2. In the **Catalog** pane, right‑click **Folders**  
-3. Select **Add Folder Connection**  
-4. Choose the folder containing the toolbox  
-→ The `.pyt` toolbox appears automatically in the Catalog under the folder connection.
+> Each toolbox has **one** dedicated documentation page in `docs/`. This README is an entry point and overview.
 
 ---
 
-## Automatic loading for all new projects (recommended)
+## Included toolboxes
 
-To make the toolbox automatically available in **every new ArcGIS Pro project**, use **Favorites → Add To New Projects**:
+- **Mobile Maps**  
+  Utilities for working with **ArcGIS Mobile Map Packages (.mmpk)**: validation, unpack, and repack (re‑zip).  
+  → See: `docs/MobileMaps.md`
 
-1. In the **Catalog** pane, right‑click **Favorites**  
-2. Click **Add Folder** and pick the folder that contains your toolbox  
-3. Right‑click the newly added favorite and choose **Add To New Projects**
-
-ArcGIS Pro will now:
-- Automatically add a folder connection for that location to **every new project**
-- Automatically show any `.pyt` / `.tbx` / `.atbx` toolboxes in that folder
-- Require no manual setup per project
-
-> Note: ArcGIS Pro supports setting a **default toolbox** per project, but only **`.tbx`** can be used as the default toolbox. Python toolboxes (`.pyt`) cannot be assigned as the project’s default toolbox. Use the Favorites method above to surface `.pyt` toolboxes consistently.
+- **CopyTools**  
+  Utilities for copying/consolidating layers and datasets (e.g., copy layers, consolidate to FileGDB, copy attachments).  
+  → See: `docs/CopyTools.md`
 
 ---
 
-## Usage
-1. Expand your folder connection in the **Catalog**
-2. Open the toolbox, e.g. *Data Copy Tools*
-![copytools](/assets/copytools-toolbox.png)
-3. Run a tool, such as **Copy Layer**
-4. Select the parameters:
-   - **Source Map**
-   - **Target Map**
-   - **Source Layer**
-   - **Target Layer**
-   - **Clear target before copying** (optional)
-![copylayer](/assets/copy-layer.png)
+## Installation (ArcGIS Pro)
 
-The tool reports progress with a progress bar and provides per‑row error handling (including the ObjectID of failed source rows), followed by a copy summary.
-![copylayer](/assets/copy-layer-results.png)
+1. **Clone** or **download** this repository.
+2. In **ArcGIS Pro**, open the **Catalog** pane:
+   - Right‑click **Toolboxes** → **Add Toolbox…**
+   - Select the desired **`.pyt`** (e.g., `MobileMaps.pyt`, `CopyTools.pyt`).
 
----
+The toolbox appears under **Toolboxes** and is ready to use in the **Geoprocessing** pane.
 
-## Team Workflow
-These toolboxes are plain Python text files:
-- Version control via **Git/GitHub** works seamlessly
-- No installation is required on client machines
-- Users automatically work with the latest version after pulling the repo
-- Shared utility scripts (e.g., `layerutils.py`) can live next to the toolbox
-
-This makes the toolset ideal for collaborative GIS development.
+> Make sure you run these tools using the **ArcGIS Pro Python environment** (ArcPy).
 
 ---
 
 ## Requirements
-- **ArcGIS Pro** 2.x or 3.x  
-- Python environment bundled with ArcGIS Pro (**ArcPy**)  
-- Read/write access to the chosen maps, layers, or feature classes
+
+- **ArcGIS Pro** (recommended: latest 3.x)
+- **ArcPy** (installed with ArcGIS Pro)
+- Read/write permissions on the involved locations
+- Sufficient **disk space** for larger packages or datasets
+
+---
+
+## Automatic loading for all new projects
+
+If you want these toolboxes to be available **by default in every new ArcGIS Pro project**, use one of the following options:
+
+1. **Project Template (recommended)**  
+   - Create a clean project, **Add Toolbox…** for each toolbox you want preloaded.  
+   - Go to **Share** → **Project** → **Create Project Template** and save the template (`.aptx`).  
+   - In **Options** → **General** → **Create projects**, set **“Use a default project template”** and browse to your template.  
+   - New projects created from **New → Your Template** (or from the default template) will automatically include the toolboxes.
+
+2. **Favorites + New Projects**  
+   - In the **Catalog** pane, right‑click a toolbox → **Add To Favorites**.  
+   - When you **clone** a favorite into a project (right‑click **Favorites** → **Add To Project**), it becomes part of that project.  
+   - For truly automatic inclusion, prefer a **Project Template** as above.
+
+> Using a **project template** ensures the toolboxes are already part of the project’s structure and appear instantly in the **Geoprocessing** pane without any manual steps.
+
+---
+
+## Contributing & support
+
+- Please file **issues** or **feature requests** via the GitHub **Issues** tab.
+- **Pull requests** are welcome. Please:
+  - Keep code style consistent and well‑commented
+  - Use only ArcPy and the Python standard library
+  - Add or update the toolbox doc page under `docs/`
 
 ---
 
 ## License
-This project is licensed under the **MIT License**.  
-See the `LICENSE` file for details.
+
+See **LICENSE** in the repository (or propose a suitable one, e.g., MIT or Apache‑2.0).
 
 ---
 
-## Contributing
-Contributions are welcome! Please read `CONTRIBUTING.md` for guidelines.
+## Maintainer
+
+This repository is maintained by **Esri Deutschland**. For questions and ideas, please open an **Issue** in this repository.
