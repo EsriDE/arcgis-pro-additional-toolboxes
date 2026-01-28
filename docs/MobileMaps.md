@@ -57,13 +57,3 @@ Re‑zips a **valid MMPK folder** into a `.mmpk` file using **ZIP_STORED** (no c
 1. Add `MobileMaps.pyt` via **Catalog** → **Toolboxes** → **Add Toolbox…**
 2. Run **Validate MMPK** (optionally keep the unpacked folder).  
 3. Run **Pack MMPK** on a valid source folder (optionally overwrite and/or delete the source after packing).
-
----
-
-## Maintenance & extension
-
-- Shared internals (unpack, selective `esriinfo/`, minimal validation, re‑zip) are implemented once and reused by both tools.
-- Easy to add:
-  - File count and size reporting
-  - Stricter `p..` pattern (e.g., `^p\d{2}$`)
-  - Additional JSON checks on `.mmap` if required

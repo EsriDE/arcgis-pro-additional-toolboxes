@@ -65,5 +65,4 @@ To make CopyTools available **by default** in new projects:
 ## Notes
 
 - Tools are implemented with **ArcPy** (no extra dependencies).
-- Parameter tooltips are authored via **Metadata (Item Description)** for each tool.
 - For large data copies/consolidations, ensure sufficient space and permissions.
